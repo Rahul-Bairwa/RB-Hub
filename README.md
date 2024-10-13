@@ -6,7 +6,7 @@
   <li><strong>User:</strong> Browse products, add to cart, secure checkout, order tracking.</li>
   <li><strong>Admin:</strong> Manage products, users, and orders.</li>
   <li><strong>Discounts:</strong> Supports percentage and flat-rate discounts.</li>
-  <li><strong>Payment:</strong> Integration with Stripe/PayPal.</li>
+  <li><strong>Payment:</strong> Integration with RazorPay</li>
   <li><strong>Authentication:</strong> JWT-based user authentication.</li>
 </ul>
 
