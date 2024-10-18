@@ -1,3 +1,5 @@
+const multer = require('multer');
+const path = require('path');
 const express = require('express');
 const Product = require('../Models/Product'); // Path to your Product model
 const router = express.Router();
@@ -61,10 +63,42 @@ router.get('/category/:categoryId', async (req, res) => {
 
 
 // POST a new product
-router.post('/add-product', async (req, res) => {
-    const { name, description, price, discountedPrice, category, brand, stock, images, rating, numReviews } = req.body;
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'media/'); // Directory to save images
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname)); // Naming the file with a timestamp to avoid overwriting
+    }
+});
+
+// File filter to accept only image files
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'|| file.mimetype === 'image/webp') {
+        cb(null, true);
+    } else {
+        cb(new Error('Unsupported file format'), false);
+    }
+};
+
+// Initialize multer middleware
+const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 1024 * 1024 * 5 }, // Limit file size to 5MB
+    fileFilter: fileFilter 
+});
+
+// POST a new product with image uploads
+router.post('/add-product', upload.array('images', 5), async (req, res) => {
+    const { name, description, price, discountedPrice, category, brand, stock, rating, numReviews } = req.body;
 
     try {
+        // Prepare image URLs
+        const images = req.files.map(file => ({
+            url: `/media/${file.filename}`,
+            alt: file.originalname
+        }));
+
         const newProduct = new Product({
             name,
             description,
@@ -73,7 +107,7 @@ router.post('/add-product', async (req, res) => {
             category,
             brand,
             stock,
-            images,
+            images, // Add the image URLs to the product schema
             rating,
             numReviews,
         });

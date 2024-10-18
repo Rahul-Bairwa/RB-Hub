@@ -4,10 +4,11 @@ const express =require('express');
 const cors =require('cors');
 const app =express();
 const port = 4444;
+const path = require('path');
 app.use(express.json());
 app.use(cors());
 app.use('/api/users',require('./Routes/auth'));
 app.use('/api/products',require('./Routes/products'));
 app.use('/api/category',require('./Routes/category'));
-
+app.use('/media', express.static(path.join(__dirname, 'media')));
 app.listen(port,()=>console.log(`server is running on http://localhost:${port}`));
