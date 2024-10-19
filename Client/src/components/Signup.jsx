@@ -4,7 +4,6 @@ import google from '../assets/google.png'
 import { Link } from "react-router-dom";
 const SignUp = () => {
     const handleSubmit=()=>{
-
     }
     return (
         <div className="signup-container">
