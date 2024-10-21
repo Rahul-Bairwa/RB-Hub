@@ -1,62 +1,104 @@
-.header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    background-color: white;
-    color: #0c0c0c;
-  }
-  
-  .date-time {
-    margin-right: 20px;
-    font-size: 14px;
-    color: #0c0c0c;
-  }
-  
-  .notification-icon {
-    position: relative;
-    margin-right: 20px;
-  }
-  
-  .notification-icon img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .notification-dot {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 8px;
-    height: 8px;
-    background-color: red;
-    border-radius: 50%;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-  }
-  
-  .search-bar input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-  }
-  
-  .search-bar button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .search-bar img {
-    width: 20px;
-    height: 20px;
-  }
-  
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.admin {
+  color: #0c0c0c;
+  display: flex;
+  justify-content: right;
+}
+
+.header-container {
+  width: 82%;
+  display: grid;
+  grid-template-columns: 6.5fr 1.5fr 4fr;
+  padding: 20px 20px;
+  background-color: #fff;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.date-time {
+  color: #888;
+  font-size: 14px;
+}
+
+
+
+.notification-icon {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0px 15px 0px 0px;
+}
+.border-right{
+  border-right: 2px solid #d1d1d1;
+  height: 90%;
+  padding-left: 20px;
+}
+
+.icon {
+  font-size: 24px;
+  color: #000;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #d1d1d1;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+
+.search-icon {
+  color: #888;
+  font-size: 24px;
+}
+.search-btn{
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  color: #000;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+/* sidebar styling */

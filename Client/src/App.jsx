@@ -1,20 +1,21 @@
 import React, { lazy, Suspense } from 'react'
 import './app.css'
 import { Route, Routes } from 'react-router-dom'
-import Home from './Pages/Home'
-const Login = lazy(() => import('./components/Login'));
-const Signup = lazy(() => import('./components/Signup'));
-const Header = lazy(() => import('./components/Header'));
-
+import { MainHeader, Login, Signup, Home } from './index';
+const LazyLoad = ({ Component }) => (
+  <Suspense fallback="Loading...">
+    <Component />
+  </Suspense>
+)
 const App = () => {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
+        <MainHeader />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<LazyLoad Component={Home} />} />
+          <Route path='/signup' element={<LazyLoad Component={Signup} />} />
+          <Route path='/login' element={<LazyLoad Component={Login} />} />
         </Routes>
       </Suspense>
     </div>
