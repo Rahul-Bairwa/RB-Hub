@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/*' element={<App />} />
-          <Route path='/admin/*' element={<Admin />} />
+          <Route path='/admin/*' element={<Admin/>} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import '../../admin.css';
 import { Route, Routes } from 'react-router-dom';
-import { AdminHeader, Dashboard,Sidebar } from '../../index';
+import { AdminHeader, Sidebar } from '../../index';
+import Dashboard from '../../components/Admin/Dashboard';
 const LazyLoad = ({ Component }) => (
   <Suspense fallback={<div>Loading...</div>}>
     <Component />
@@ -10,11 +11,15 @@ const LazyLoad = ({ Component }) => (
 const Admin = () => {
   return (
     <div className='admin'>
-      <Sidebar/>
-      <AdminHeader />
-      <Routes>
-        <Route path="/dashboard" element={<LazyLoad Component={Dashboard} />} />
-      </Routes>
+      <div className="left-admin">
+        <Sidebar />
+      </div>
+      <div className="right-admin">
+        <AdminHeader/>
+        <Routes>
+          <Route path="/dashboard" element={<LazyLoad Component={Dashboard} />} />
+        </Routes>
+      </div>
     </div>
   );
 };

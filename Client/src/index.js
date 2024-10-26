@@ -11,6 +11,7 @@ import { lazy } from "react";
 // import Input from "./Input";
 const Dashboard =lazy(() => import('./components/Admin/Dashboard'));
 const AdminHeader = lazy(() => import("./components/Admin/Header"));
+const Sidebar = lazy(() => import("./components/Admin/Sidebar"));
 
 const Home = lazy(()=>import("./Pages/Home"));
 const MainHeader = lazy(() => import("./components/Header")); // Adjust the path if necessary
@@ -23,5 +24,6 @@ export {
     Login,
     //admin components
     AdminHeader,
-    Dashboard
+    Dashboard,
+    Sidebar
 }
