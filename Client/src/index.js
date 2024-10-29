@@ -10,8 +10,9 @@ import { lazy } from "react";
 // import AuthLayout from "./AuthLayout";
 // import Input from "./Input";
 const Dashboard =lazy(() => import('./components/Admin/Dashboard'));
-const AdminHeader = lazy(() => import("./components/Admin/Header"));
+const AdminHeader = lazy(() => import("./components/Admin/DesktopHeader"));
 const Sidebar = lazy(() => import("./components/Admin/Sidebar"));
+const TopProducts = lazy(() => import("./components/Admin/TopProducts"));
 
 const Home = lazy(()=>import("./Pages/Home"));
 const MainHeader = lazy(() => import("./components/Header")); // Adjust the path if necessary
@@ -25,5 +26,6 @@ export {
     //admin components
     AdminHeader,
     Dashboard,
-    Sidebar
+    Sidebar,
+    TopProducts
 }

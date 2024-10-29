@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 
-const Header = () => {
+const DesktopHeader = () => {
   const currentDateTime = new Date().toLocaleString('en-GB', {
     timeZone: 'GMT',
     hour12: true,
@@ -14,7 +14,7 @@ const Header = () => {
   });
   const notificationCount = 13;
   return (
-    <div className="header-container">
+    <div className="header-container" >
       <div className="welcome-section">
         <h2 className='admin-name'>Welcome, Rahul</h2>
         <p className='date-time'>{currentDateTime} GMT</p>
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopHeader;
