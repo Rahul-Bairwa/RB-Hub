@@ -1,24 +1,32 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import '../../admin.css';
 import { Route, Routes } from 'react-router-dom';
-import { AdminHeader, Sidebar } from '../../index';
-import Dashboard from '../../components/Admin/Dashboard';
+import { AdminMobileHeader, Dashboard, AdminDesktopHeader, Sidebar } from '../../index';
 const LazyLoad = ({ Component }) => (
   <Suspense fallback={<div>Loading...</div>}>
-    <Component/>
+    <Component />
   </Suspense>
 );
 const Admin = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <div className='admin'>
       <div className="left-admin">
-        <Sidebar />
+        {!isMobile && <Sidebar />}
       </div>
       <div className="right-admin">
-        <AdminHeader/>
+        {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader />}
         <Routes>
-          <Route path="/dashboard" element={<LazyLoad Component={Dashboard}/>} />
+          <Route path="/dashboard" element={<LazyLoad Component={Dashboard} />} />
         </Routes>
       </div>
     </div>

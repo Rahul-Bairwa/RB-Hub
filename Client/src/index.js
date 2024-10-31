@@ -10,7 +10,8 @@ import { lazy } from "react";
 // import AuthLayout from "./AuthLayout";
 // import Input from "./Input";
 const Dashboard =lazy(() => import('./components/Admin/Dashboard'));
-const AdminHeader = lazy(() => import("./components/Admin/DesktopHeader"));
+const AdminDesktopHeader = lazy(() => import("./components/Admin/DesktopHeader"));
+const AdminMobileHeader = lazy(() => import("./components/Admin/MobileHeader"));
 const Sidebar = lazy(() => import("./components/Admin/Sidebar"));
 const TopProducts = lazy(() => import("./components/Admin/TopProducts"));
 
@@ -24,7 +25,8 @@ export {
     Signup,
     Login,
     //admin components
-    AdminHeader,
+    AdminDesktopHeader,
+    AdminMobileHeader,
     Dashboard,
     Sidebar,
     TopProducts

@@ -19,13 +19,9 @@ function TopProducts() {
         <div className="top-products">
             <h2>Top Products</h2>
             <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button>Enter</button>
+                <input type="text" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+                <button type='submit' className='search-btn'>Enter</button>
+
             </div>
             <div className="products-list">
                 {filteredProducts.map((product) => (

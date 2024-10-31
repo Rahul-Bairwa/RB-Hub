@@ -13,7 +13,7 @@ const Sidebar = () => {
           <FaTachometerAlt className="sidebar-icon" />
           <span>Dashboard</span>
         </NavLink>
-        <NavLink to="/admin/analytics" className="sidebar-item" activeClassName="active">
+        <NavLink to="/admin/anal  ytics" className="sidebar-item" activeClassName="active">
           <FaChartPie className="sidebar-icon" />
           <span>Analytics</span>
         </NavLink>

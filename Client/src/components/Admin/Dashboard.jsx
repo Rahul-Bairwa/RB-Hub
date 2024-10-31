@@ -12,6 +12,7 @@ import {
   ArcElement,
 } from 'chart.js';
 import {TopProducts} from '../../index';
+import InvoiceTable from './InvoiceTable';
 const LazyLoad = ({ Component }) => (
   <Suspense fallback={<div>Loading...</div>}>
     <Component />
@@ -72,37 +73,10 @@ const Dashboard = () => {
         <div className="revenue-order-chart dashboard-card">
           <h4>Revenue vs Order</h4>
           <div className="line-chart">
-            {/* <Line data={lineData} /> */}
+            <Line data={lineData} />
           </div>
         </div>
-        <div className="recent-invoice dashboard-card">
-          <h4>Recent Invoice</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Id Customer</th>
-                <th>Customer Name</th>
-                <th>City</th>
-                <th>Order Date</th>
-                <th>Status</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>#6545</td>
-                <td>Jane Cooper</td>
-                <td>Sydney</td>
-                <td>01 Oct | 11:29 am</td>
-                <td className="paid">Paid</td>
-                <td>$64</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
+        <InvoiceTable/>
       </div>
       <div className="right-dashboard">
         <div className="dashboard-card sales-category">
