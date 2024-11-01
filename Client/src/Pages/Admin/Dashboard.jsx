@@ -12,7 +12,7 @@ import {
   ArcElement,
 } from 'chart.js';
 import {TopProducts} from '../../index';
-import InvoiceTable from './InvoiceTable';
+import InvoiceTable from '../../components/Admin/InvoiceTable';
 const LazyLoad = ({ Component }) => (
   <Suspense fallback={<div>Loading...</div>}>
     <Component />

@@ -1,15 +1,6 @@
-// import Select from "./Select";
 import { lazy } from "react";
-// import Footer from "./Footer/Footer";
-// import Container from "./container/Container";
-// import LogoutBtn from "./Header/LogoutBtn";
-// import RTE from "./RTE";
-// import Button from "./Button";
-// import PostForm from "./post-form/PostForm";
-// import PostCard from "./PostCard";
-// import AuthLayout from "./AuthLayout";
-// import Input from "./Input";
-const Dashboard =lazy(() => import('./components/Admin/Dashboard'));
+const Dashboard =lazy(() => import('./Pages/Admin/Dashboard'));
+const Products =lazy(() => import('./Pages/Admin/Products'));
 const AdminDesktopHeader = lazy(() => import("./components/Admin/DesktopHeader"));
 const AdminMobileHeader = lazy(() => import("./components/Admin/MobileHeader"));
 const Sidebar = lazy(() => import("./components/Admin/Sidebar"));
@@ -27,6 +18,7 @@ export {
     //admin components
     AdminDesktopHeader,
     AdminMobileHeader,
+    Products,
     Dashboard,
     Sidebar,
     TopProducts

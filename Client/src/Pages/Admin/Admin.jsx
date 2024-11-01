@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import '../../admin.css';
 import { Route, Routes } from 'react-router-dom';
-import { AdminMobileHeader, Dashboard, AdminDesktopHeader, Sidebar } from '../../index';
+import { AdminMobileHeader, Dashboard, AdminDesktopHeader, Sidebar,Products } from '../../index';
 const LazyLoad = ({ Component }) => (
   <Suspense fallback={<div>Loading...</div>}>
     <Component />
@@ -27,6 +27,7 @@ const Admin = () => {
         {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader />}
         <Routes>
           <Route path="/dashboard" element={<LazyLoad Component={Dashboard} />} />
+          <Route path="/products" element={<LazyLoad Component={Products} />} />
         </Routes>
       </div>
     </div>
