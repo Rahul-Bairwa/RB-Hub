@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios, { all } from 'axios';
 import {
     useReactTable,
     flexRender,
@@ -7,10 +6,10 @@ import {
     createColumnHelper,
 } from '@tanstack/react-table';
 import { IoAddCircle } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const columnHelper = createColumnHelper();
 
-// Column definitions
 const columns = [
     columnHelper.accessor('images', {
         header: 'Photo',
@@ -49,11 +48,16 @@ const columns = [
 
 const Products = () => {
     const [allProducts, setAllProducts] = useState([]);
-    
+    const navigate = useNavigate();
+
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/products/');
-            setAllProducts(response.data);
+            const response = await fetch('http://localhost:4444/api/products/');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setAllProducts(data);
         } catch (error) {
             console.error('Error fetching the products:', error);
         }
@@ -66,19 +70,19 @@ const Products = () => {
     });
 
     const handleAddProduct = () => {
-        alert('Add product functionality to be implemented');
+        navigate('/admin/add-product');
     };
 
     useEffect(() => {
         fetchProducts();
     }, []);
-console.log("allProducts",allProducts)
+
     return (
         <div className="products-container">
             <div className="top-bar">
                 <h1>Products</h1>
                 <button className="add-button" onClick={handleAddProduct}>
-                    <IoAddCircle/>
+                    <IoAddCircle />
                 </button>
             </div>
             <table className="products-table">

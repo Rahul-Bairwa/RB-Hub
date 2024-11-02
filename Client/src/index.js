@@ -1,6 +1,7 @@
 import { lazy } from "react";
 const Dashboard =lazy(() => import('./Pages/Admin/Dashboard'));
 const Products =lazy(() => import('./Pages/Admin/Products'));
+const AddProduct =lazy(() => import('./Pages/Admin/AddProduct'));
 const AdminDesktopHeader = lazy(() => import("./components/Admin/DesktopHeader"));
 const AdminMobileHeader = lazy(() => import("./components/Admin/MobileHeader"));
 const Sidebar = lazy(() => import("./components/Admin/Sidebar"));
@@ -19,6 +20,7 @@ export {
     AdminDesktopHeader,
     AdminMobileHeader,
     Products,
+    AddProduct,
     Dashboard,
     Sidebar,
     TopProducts

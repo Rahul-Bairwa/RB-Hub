@@ -84,8 +84,8 @@ router.get('/category/:categoryId', async (req, res) => {
 router.post('/add-product', upload.array('images', 5), async (req, res) => { // Limiting to 5 images
     const { name, description, price, discountedPrice, category, brand, stock, rating, numReviews } = req.body;
     const images = req.files ? req.files.map(file => ({
-        url: `/uploads/${file.filename}`,
-        alt: name,
+        url: `/media/${file.filename}`,
+        alt: file.filename,
     })) : [];
 
     try {
